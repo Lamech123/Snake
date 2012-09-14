@@ -20,19 +20,19 @@ class Worm:
     def event(self, event):
         """ Handle keyboard events. """
         if event.key == pygame.K_UP:
-            if self.vy == 1: return
+            if self.vy == 1:
                 self.vx = 0
                 self.vy = -1
         elif event.key == pygame.K_DOWN:
-            if self.vy == -1: return
+            if self.vy == -1:
                 self.vx = 0
                 self.vy = 1
         elif event.key == pygame.K_LEFT:
-            if self.vx == 1: return
+            if self.vx == 1:
                 self.vx = -1
                 self.vy = 0
         elif event.key == pygame.K_RIGHT:
-            if self.vx == -1: return
+            if self.vx == -1:
                 self.vx = 1
                 self.vy = 0
 
@@ -52,9 +52,9 @@ class Worm:
             self.body.pop()
 
     def draw(self):
-        #for x, y in self.body:
-        #    self.surface.set_at((x, y), self.color)
-        x, y = self.body[0]
-        self.surface.set_at((x, y), self.color)
-        x, y = self.body[-1]
-        self.surface.set_at((x, y), (0, 0, 0))
+        for x, y in self.body:
+            self.surface.set_at((x, y), self.color)
+            x, y = self.body[0]
+            self.surface.set_at((x, y), self.color)
+            x, y = self.body[-1]
+            self.surface.set_at((x, y), (0, 0, 0))
